@@ -1,7 +1,7 @@
 name: Check form submissions
 on:
   schedule:
-    - cron: '1/5 * * * *'
+    - cron: '12 * * * *'
 jobs:
   check_form_submissions:
     runs-on: ubuntu-latest
