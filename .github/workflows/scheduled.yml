@@ -6,10 +6,6 @@ on:
     types: [manual-run]
 jobs:
   check_form_submissions:
-    runs-on: ghcr.io/jimpick/sp-kyc-tools
-    steps:
-      - run: node sync_google_form.mjs
-  finish:
     runs-on: ubuntu-latest
     steps:
       - name: Sync submissions from Google Form
