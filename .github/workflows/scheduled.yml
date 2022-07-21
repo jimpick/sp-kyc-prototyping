@@ -12,6 +12,13 @@ jobs:
   finish:
     runs-on: ubuntu-latest
     steps:
+      - name: Sync submissions from Google Form
+        id: new_responses
+        uses: jimpick/sp-kyc-tools
+        with:
+          who-to-greet: 'Mona the Octocat'
+      - name: Get the output time
+        run: echo "The time was ${{ steps.new_responses.outputs.time }}"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
       - name: Check out repository code
