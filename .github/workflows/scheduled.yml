@@ -8,6 +8,8 @@ jobs:
   check_form_submissions:
     runs-on: ubuntu-latest
     steps:
+      - name: Check out repository code
+        uses: actions/checkout@v3
       - name: Sync submissions from Google Form
         id: new_responses
         uses: jimpick/sp-kyc-tools/download-google-form-responses@HEAD
@@ -23,8 +25,6 @@ jobs:
         run: echo "The time was ${{ steps.new_responses.outputs.time }}"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
-      - name: Check out repository code
-        uses: actions/checkout@v3
       - name: Write date to log and commit
         run: |
           set -euo pipefail
