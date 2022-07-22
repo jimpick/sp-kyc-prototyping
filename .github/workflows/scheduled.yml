@@ -14,6 +14,11 @@ jobs:
         with:
           form-id: 1z0Ja5VidknDfngLkbAr10Z20VaKZPf2q4n5x6Bgm5v8
           credentials-json: ${{ secrets.CREDENTIALS_JSON }}
+      - name: Upload form responses
+        uses: actions/upload-artifact@v3
+        with:
+          name: google-form-responses
+          path: output/google-form-responses.json
       - name: Get the output time
         run: echo "The time was ${{ steps.new_responses.outputs.time }}"
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
