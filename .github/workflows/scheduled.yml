@@ -10,8 +10,9 @@ jobs:
     steps:
       - name: Sync submissions from Google Form
         id: new_responses
-        uses: jimpick/sp-kyc-tools/sync-google-form@HEAD
+        uses: jimpick/sp-kyc-tools/download-google-form-responses@HEAD
         with:
+          form-id: 1z0Ja5VidknDfngLkbAr10Z20VaKZPf2q4n5x6Bgm5v8
           credentials-json: ${{ secrets.CREDENTIALS_JSON }}
       - name: Get the output time
         run: echo "The time was ${{ steps.new_responses.outputs.time }}"
